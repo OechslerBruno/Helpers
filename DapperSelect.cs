@@ -3,7 +3,7 @@ namespace Project.Dapper.Repositories
     public class ProjectRepository : BaseRepository, IProjectRepository
     {
 
-		public List<ProjectEntity> GetReportData(ProjectEntity projectEntity)
+	public List<ProjectEntity> GetReportData(ProjectEntity projectEntity)
         {
             StringBuilder query = new StringBuilder();
             Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -47,8 +47,8 @@ namespace Project.Dapper.Repositories
 
                 whereConditions.Add(filterDate.ToString());
 
-				parameters.Add("ListCustomers", projectEntity.ListCustomers);
-				whereConditions.Add(" Tab.Customer IN @ListCustomers ")
+		parameters.Add("ListCustomers", projectEntity.ListCustomers);
+		whereConditions.Add(" Tab.Customer IN @ListCustomers ")
 				
                 query.AppendFormat(" WHERE {0}", string.Join(" AND ", whereConditions.ToArray()));
 
@@ -59,5 +59,5 @@ namespace Project.Dapper.Repositories
                 return lista;
             }
         }
-	}
+     }
 }
